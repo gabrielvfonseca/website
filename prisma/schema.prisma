@@ -1,0 +1,138 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["referentialIntegrity"]
+}
+
+datasource db {
+  provider             = "mysql"
+  url                  = env("DATABASE_URL")
+  referentialIntegrity = "prisma"
+}
+
+
+model users {
+  id          String   @id @db.VarChar(36) @unique
+  username    String   @db.VarChar(45)
+  name        String?  @db.VarChar(45)
+  email       String?  @db.VarChar(45)
+  avatar      Bytes?   @db.Blob
+  profile_url String   @db.VarChar(45)
+  created_at  DateTime @db.DateTime(0)
+  updated_at  DateTime @db.DateTime(0)
+}
+
+model bookmarks {
+  id          String   @db.VarChar(36)
+  tags_id     String   @db.VarChar(45)
+  title       String   @db.VarChar(55)
+  description String?  @db.VarChar(80)
+  url         String?  @db.VarChar(45)
+  icon        Bytes?   @db.Blob
+  created_at  DateTime @db.DateTime(0)
+
+  @@id([id, tags_id])
+}
+
+model bookmarks_comments {
+  id          String   @db.VarChar(36)
+  bookmark_id String   @db.VarChar(36)
+  user_id     String   @db.VarChar(36)
+  comment     String   @db.VarChar(80)
+  created_at  DateTime @db.DateTime(0)
+
+  @@id([id, bookmark_id, user_id])
+}
+
+model bookmarks_tags {
+  tag String @id @db.VarChar(45)
+}
+
+model comments_stack {
+  id         String   @db.VarChar(36)
+  app        String   @db.VarChar(45)
+  user_id    String   @db.VarChar(36) 
+  comment    String   @db.VarChar(80)
+  created_at DateTime @db.DateTime(0)
+
+  @@id([id, app, user_id])
+}
+
+model forum {
+  id          String   @db.VarChar(36)
+  user_id     String   @db.VarChar(36)
+  question    String   @db.VarChar(55)
+  description String?  @db.VarChar(80)
+  created_at  DateTime @db.DateTime(0)
+
+  @@id([id, user_id])
+}
+
+model forum_comments {
+  id          String   @db.VarChar(36)
+  question_id String   @db.VarChar(36)
+  user_id     String   @db.VarChar(36)
+  comment     String   @db.VarChar(80)
+  created_at  DateTime @db.DateTime(0)
+
+  @@id([id, question_id, user_id])
+}
+
+model snippets {
+  id          String   @db.VarChar(36)
+  user_id     String   @db.VarChar(36)
+  title       String   @db.VarChar(45)
+  description String?  @db.VarChar(45)
+  icon        Bytes?   @db.Blob
+  created_at  DateTime @db.DateTime(0)
+
+  @@id([id, user_id])
+}
+
+model stack {
+  app         String  @db.VarChar(45)
+  tag         String  @db.VarChar(45)
+  description String? @db.VarChar(80)
+  app_url     String? @db.VarChar(45)
+  logo        Bytes   @db.Blob
+
+  @@id([app, tag])
+}
+
+model stack_tags {
+  tag String @id @db.VarChar(45)
+}
+
+model stack_usage {
+  id_commit  String   @db.VarChar(36)
+  app        String   @db.VarChar(45)
+  user_id    String   @db.VarChar(36)
+  created_at DateTime @db.DateTime(0)
+
+  @@id([id_commit, app, user_id])
+}
+
+
+model writting {
+  id         String   @db.VarChar(36)
+  tags_id    String   @db.VarChar(45)
+  title      String   @db.VarChar(55)
+  content    String   @db.VarChar(400)
+  created_at DateTime @db.DateTime(0)
+  updated_at DateTime @db.DateTime(0)
+
+  @@id([id, tags_id])
+}
+
+model writting_comments {
+  id         String   @db.VarChar(36)
+  post_id    String   @db.VarChar(36)
+  user_id    String   @db.VarChar(36)
+  comment    String   @db.VarChar(80)
+  created_at DateTime @db.DateTime(0)
+
+  @@id([id, post_id, user_id])
+}
+
+model writting_tags {
+  tag String @id @db.VarChar(45)
+}
