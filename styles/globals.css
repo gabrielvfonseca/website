@@ -32,9 +32,14 @@ body {
   background-color: #090a0a;
 }
 
-h1.text-gradient {
-  background: linear-gradient(180deg, #fff, #aaa), #fff;
-  background-clip: border-box, border-box;
+svg {
+  display: block;
+}
+
+h1.gradient {
+  background: -webkit-linear-gradient(90deg, #fff, #fff, #aaa);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
 }
 
 /* Inter */

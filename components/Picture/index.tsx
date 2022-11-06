@@ -9,17 +9,17 @@ interface Props {
   quality: number;
 }
 
-const imgLoader = ({ src, width, quality }: ImageLoaderProps) => {
+const imageLoader = ({ src, width, quality }: ImageLoaderProps) => {
   return `/${src}?w=${width}&q=${quality}`;
 };
 
-const Figure = ({ src, alt, width, height, quality }: Props) => {
+const Picture = ({ src, alt, width, height, quality }: Props) => {
   return (
     <Image
       className="rounded-sm"
       priority
       quality={quality}
-      loader={imgLoader}
+      loader={imageLoader}
       src={src}
       alt={alt}
       width={width}
@@ -28,4 +28,4 @@ const Figure = ({ src, alt, width, height, quality }: Props) => {
   );
 };
 
-export default Figure;
+export default Picture;

@@ -49,6 +49,9 @@ module.exports = {
       success: '#04E762',
     },
     borderRadius: {
+      t: '2px',
+      ts: '4px',
+      s: '6px',
       base: '8px',
       th: '10px',
       sm: '12px',
@@ -60,16 +63,16 @@ module.exports = {
       hero: '58px',
       '5xl': '50px',
       '4xl': '45px',
-      '3xl': '32px',
-      '2xl': '28px',
+      '3xl': '1.9em',
+      '2xl': '1.8em',
       xl: '22px',
       b: '20px', // big
       l: '18px', // large
       m: '16px', // medium
       base: '14px', // default
       s: '.92rem', // small
-      ts: '12px',
-      t: '11px', // thin
+      ts: '.89em',
+      t: '.80em', // thin
     },
     fontWeight: {
       thin: 100,
@@ -93,7 +96,7 @@ module.exports = {
       10: '2.5rem' /* 40px */,
       none: 1,
       tight: 1.25,
-      snug: 1.375,
+      snug: 1.35,
       normal: 1.5,
       relaxed: 1.625,
       loose: 2,
