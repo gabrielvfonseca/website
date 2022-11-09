@@ -21,6 +21,7 @@ module.exports = {
     },
     fontFamily: {
       sans: ['Inter', 'sans'],
+      serif: ['Space Grotesk', 'sans-serif'],
     },
     colors: {
       transparent: 'transparent',
@@ -39,6 +40,7 @@ module.exports = {
       gray: '#CED0CE',
       charleston: '#1C1F1F',
       'reisin-black': '#191919',
+      'rich-dark-gray': '#090a0a',
       'frogra-black': '#0E0F0F',
       eggshell: '#F4F1DE',
       terracotta: '#D25B3C',
@@ -72,6 +74,7 @@ module.exports = {
       base: '14px', // default
       s: '.92rem', // small
       ts: '.89em',
+      tss: '.85rem',
       t: '.80em', // thin
     },
     fontWeight: {
@@ -144,6 +147,13 @@ module.exports = {
       3: '0.8rem',
       4: '1.2rem',
       5: '1.5rem',
+      6: '1.8rem',
+      7: '2.2rem',
+      8: '2.6rem',
+      9: '3rem',
+    },
+    textDecorationThickness: {
+      0.8: '0.8px',
     },
   },
   plugins: [],

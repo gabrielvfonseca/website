@@ -1,5 +1,5 @@
 const Divider = () => {
-  return <hr className="w-full h-0 rounded-base opacity-5 border-1 border-solid border-b-gray"></hr>;
+  return <div className="w-full h-1 rounded-base border-b-0.8 border-b-solid border-b-charleston" />;
 };
 
 export default Divider;

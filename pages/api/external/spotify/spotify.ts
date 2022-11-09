@@ -23,14 +23,11 @@ const getAccessToken = async () => {
   });
 
   const data = await response.json();
-  console.log(data);
   return data;
 };
 
 export const getNowPlaying = async () => {
   const { access_token } = await getAccessToken();
-
-  console.log(access_token);
 
   return fetch('https://api.spotify.com/v1/me/player/currently-playing', {
     headers: {
@@ -41,8 +38,6 @@ export const getNowPlaying = async () => {
 
 export const getTopTracks = async () => {
   const { access_token } = await getAccessToken();
-
-  console.log(access_token);
 
   return fetch('https://api.spotify.com/v1/me/top/tracks', {
     headers: {

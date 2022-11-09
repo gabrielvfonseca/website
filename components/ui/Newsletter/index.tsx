@@ -32,7 +32,7 @@ const Newsletter = () => {
           <button
             type="submit"
             onClick={handleClick}
-            className="text-black m-auto h-fit py-1 px-3 absolute right-1 top-1 font-medium rounded-base text-ts bg-whiter hover:bg-opacity-75 transition ease-in-out delay-75 duration-250"
+            className="text-black m-auto h-fit py-1 px-3 absolute right-1 top-1 font-medium rounded-base font-serif text-ts bg-whiter hover:bg-opacity-75 transition ease-in-out delay-75 duration-250"
           >
             Subscribe
           </button>

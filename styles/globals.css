@@ -1,3 +1,13 @@
+/*
+* Globals.css | 9/10/2022
+* 1. Tailwind Config
+* 2. Root & Body
+* 3. Svg
+* 4. Headings
+* 5. Lists
+* 6. Fonts
+*/
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -40,6 +50,11 @@ h1.gradient {
   background: -webkit-linear-gradient(90deg, #fff, #fff, #aaa);
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
+}
+
+span.badge-primary {
+  background: rgba(255, 125, 90, 0.35);
+  border: 0.8px solid rgba(241, 80, 37, 0.45);
 }
 
 /* Inter */
