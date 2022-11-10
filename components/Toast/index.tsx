@@ -8,7 +8,7 @@ interface Props {
   visible?: boolean;
 }
 
-export const Motion = {
+export const Animation = {
   initial: {
     y: 150,
     x: 0,
@@ -31,7 +31,7 @@ const Toast: React.FC<Props> = ({ children, visible }) => {
     <motion.div className="bg-transparent fixed bottom-4 right-8 z-50">
       <AnimatePresence>
         {isVisible && (
-          <motion.div layout initial={Motion.initial} animate={Motion.animate} exit={Motion.exit}>
+          <motion.div layout initial={Animation.initial} animate={Animation.animate} exit={Animation.exit}>
             <div className="flex w-fit z-40 py-2 rounded-base bg-frogra-black border-0.8 border-solid border-charleston">
               <span
                 onClick={() => setVisibility(!isVisible)}

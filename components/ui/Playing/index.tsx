@@ -5,9 +5,9 @@ import { Picture, Hyperlink, Heading } from '../../index';
 import { CloseIcon } from '@iconicicons/react';
 
 import useKeyPress from '../../../utils/functions/keyPress';
-import { Motion } from '../../Toast';
+import { Animation } from '../../Toast';
 
-interface StateProps {
+interface Props {
   isPlaying: boolean;
   album: string;
   artist: string;
@@ -17,8 +17,9 @@ interface StateProps {
 }
 
 const Playing = () => {
-  const [data, setData] = useState<StateProps>();
+  const [data, setData] = useState<Props>();
   const [isVisible, setVisibility] = useState(true);
+  const [isHovered, setHovered] = useState(false);
 
   const fetchData = () => {
     return fetch('http://localhost:3000/api/external/spotify/playing')
@@ -47,7 +48,7 @@ const Playing = () => {
     <AnimatePresence>
       {data?.isPlaying && isVisible ? (
         <motion.div className="bg-transparent fixed bottom-4 right-8 z-50">
-          <motion.div layout initial={Motion.initial} animate={Motion.animate} exit={Motion.exit}>
+          <motion.div layout initial={Animation.initial} animate={Animation.animate} exit={Animation.exit}>
             <div className="flex w-fit z-40 py-2 rounded-base bg-frogra-black border-0.8 border-solid border-charleston">
               <span
                 onClick={() => setVisibility(false)}
@@ -57,9 +58,19 @@ const Playing = () => {
               </span>
               <div>
                 <div className="flex space-x-3 pl-4 pr-8">
-                  <span className="pt-2">
-                    <Picture src="static/icons/social/spotify.svg" width={22} height={22} alt="Spotify" quality={100} />
-                  </span>
+                  <motion.span
+                    className="pt-2"
+                    onMouseEnter={() => setHovered(true)}
+                    onMouseLeave={() => setHovered(false)}
+                  >
+                    <Picture
+                      src={'static/icons/social/spotify.svg'}
+                      width={22}
+                      height={22}
+                      alt="Spotify"
+                      quality={100}
+                    />
+                  </motion.span>
                   <div>
                     <span className="font-serif text-t text-gray opacity-70">Listening to:</span>
                     <Hyperlink

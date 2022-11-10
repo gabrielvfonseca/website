@@ -23,3 +23,4 @@ export { default as AboutSite } from './ui/Site';
 export { default as Timeline } from './ui/Timeline';
 export { default as TopTracks } from './ui/TopTracks';
 export { default as Playing } from './ui/Playing';
+export { default as Search } from './ui/Search';

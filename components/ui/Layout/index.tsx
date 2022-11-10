@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-import { Sidebar, Playing } from '../../index';
+import { Sidebar, Playing, Search } from '../../index';
 
 interface Props {
   children: React.ReactNode;
@@ -22,6 +22,7 @@ export default function Layout({ children, header }: Props) {
   if (header) {
     return (
       <>
+        <Search />
         <Playing />
         <main className="flex">
           <Sidebar />
@@ -56,6 +57,7 @@ export default function Layout({ children, header }: Props) {
 
   return (
     <>
+      <Search />
       <Playing />
       <main className="flex">
         <Sidebar />

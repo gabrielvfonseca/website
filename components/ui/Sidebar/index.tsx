@@ -22,7 +22,6 @@ const NavigationLink: React.FC<{ label: string; route: string }> = ({ label, rou
     <Hyperlink
       variant="wrapped"
       href={route}
-      prefetch={true}
       className="flex py-1 px-3 h-8 w-full space-x-3 content-center bg-transparent rounded-sm border-0.8 border-solid border-transparent hover:text-opacity-80 hover:border-charleston transition ease-in-out delay-50 duration-200"
       scrollToTop
     >
@@ -34,9 +33,8 @@ const NavigationLink: React.FC<{ label: string; route: string }> = ({ label, rou
 const NavigationSocialLink: React.FC<{ label: string; route: string }> = ({ label, route }) => {
   return (
     <Hyperlink
+      variant="wrapped"
       href={route}
-      prefetch={true}
-      target="_blank"
       className="flex py-1 px-3 h-8 w-full space-x-1 content-center bg-transparent rounded-sm border-0.8 border-solid border-transparent hover:text-opacity-80 hover:border-charleston transition ease-in-out delay-50 duration-200"
     >
       <span className="font-sans text-white text-left text-s font-medium">{label}</span>
