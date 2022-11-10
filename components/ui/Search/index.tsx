@@ -23,7 +23,7 @@ export const Animation = {
 };
 
 const Search = () => {
-  const [isVisible, setVisibility] = useState(true);
+  const [isVisible, setVisibility] = useState(false);
 
   // Use keyboard shotcut 'q' to open search
   useKeyPress(['q'], (e: any) => setVisibility(!isVisible));

@@ -6,8 +6,6 @@ import type { NextPageWithLayout } from './_app';
 import { Layout, Divider, Paragraph, Heading } from '../components/index';
 import { Newsletter, PostList, ProjectList, SocialList } from '../components/index';
 
-import Toast from '../components/Toast';
-
 const Page: NextPageWithLayout = () => {
   return (
     <div>
