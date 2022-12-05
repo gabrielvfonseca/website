@@ -58,7 +58,7 @@ h1.gradient {
 
 span.badge-primary {
   background: rgba(255, 125, 90, 0.35);
-  border: 0.8px solid rgba(241, 80, 37, 0.45);
+  border-color: rgba(241, 80, 37, 0.45);
 }
 
 /* Inter */

@@ -3,7 +3,7 @@ module.exports = {
   content: ['./**/*.{js,jsx,ts,tsx}'],
   theme: {
     darkMode: 'class',
-    backgroundImage: () => ({
+    background: () => ({
       moonwalk: 'background: linear-gradient(to bottom top, #fff 0%, #aaa 100%)',
 
       eliptica: 'linear-gradient(#f15025 0%, #191919 100%)',
@@ -14,11 +14,6 @@ module.exports = {
       stardust: 'linear-gradient(#af9e8c 0%, #eab464 44.86%, rgba(217, 126, 22, 0.96) 69.38%, #f15025 100%)',
       earthshine: 'linear-gradient(#406f99 0%, #aa7459 43.86%, #561210 76.63%, #050e1a 100%)',
     }),
-    screens: {
-      tablet: '640px',
-      laptop: '1024px',
-      desktop: '1280px',
-    },
     fontFamily: {
       sans: ['Inter', 'sans'],
       serif: ['Space Grotesk', 'sans-serif'],
@@ -140,6 +135,7 @@ module.exports = {
       widest: '40em',
     },
     padding: {
+      0.8: '0.02rem',
       1: '0.3rem',
       1.2: '0.35rem',
       1.5: '0.4rem',

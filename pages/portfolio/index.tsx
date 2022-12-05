@@ -1,14 +1,25 @@
 import React from 'react';
 import type { ReactElement } from 'react';
-import Head from 'next/head';
 
+/* Next */
+import Link from 'next/link';
+import Head from 'next/head';
 import type { NextPageWithLayout } from '../_app';
+
+/* Ui Components */
 import { ArchiveIcon } from '@iconicicons/react';
-import { Layout, Heading, Divider, Paragraph, Picture } from '../../components/index';
+import { Heading, Divider, Paragraph, Picture, Button } from '../../components/ui';
+
+/* Page Components */
+import Layout from '../../components/Layout';
+import Container from '../../components/Container';
+
+/* Framer Motion */
+import { motion } from 'framer-motion';
 
 const Page: NextPageWithLayout = ({ data }: any) => {
   return (
-    <div>
+    <>
       <Head>
         <title>Portfolio | Gabriel Fonseca</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
@@ -18,8 +29,8 @@ const Page: NextPageWithLayout = ({ data }: any) => {
         <link rel="manifest" href="/webmanifest.json" />
         <meta name="theme-color" content="#ffffff" />
       </Head>
-      <div className="space-y-10" id="#">
-        <Heading variant="h1" className="gradient">
+      <div className="space-y-10">
+        <Heading variant="h1" className="gradient" id="#">
           My Work.
         </Heading>
 
@@ -46,15 +57,22 @@ const Page: NextPageWithLayout = ({ data }: any) => {
               label="A template photo"
               title="Hi, nice to see you! :)"
             />
+            <Link href="/static/docs/cv_gabriel.pdf">
+              <Button variant="outline">Download CV</Button>
+            </Link>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
 Page.getLayout = function getLayout(page: ReactElement) {
-  return <Layout header={{ heading: 'Portfolio', icon: <ArchiveIcon width={20} height={20} /> }}>{page}</Layout>;
+  return (
+    <Layout head={{ heading: 'Portfolio', icon: <ArchiveIcon width={20} height={20} /> }}>
+      <Container>{page}</Container>
+    </Layout>
+  );
 };
 
 export default Page;

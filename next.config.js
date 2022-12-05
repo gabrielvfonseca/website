@@ -6,7 +6,7 @@ const nextConfig = {
     buildActivity: false,
   },
   images: {
-    domains: ['brianlovin.com, google.com, unsplash.com', 'i.scdn.co', 'spotify.com', 'scdn.com'],
+    domains: ['google.com', 'unsplash.com', 'i.scdn.co', 'spotify.com', 'scdn.com'],
   },
 };
 

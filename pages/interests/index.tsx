@@ -1,10 +1,27 @@
 import React from 'react';
 import type { ReactElement } from 'react';
-import Head from 'next/head';
 
+/* Next */
+import Head from 'next/head';
 import type { NextPageWithLayout } from '../_app';
+
+/* Ui Components */
 import { PinTackIcon } from '@iconicicons/react';
-import { Layout, Hyperlink, Heading, Divider, Paragraph, Picture, TopTracks } from '../../components/index';
+import { Heading, Divider, Paragraph, Picture } from '../../components/ui';
+
+/* Page Components */
+import Layout from '../../components/Layout';
+import Container from '../../components/Container';
+import TopTracks from '../../components/TopTracks';
+import Navigation from '../../components/Navigation';
+
+/* Framer Motion */
+import { motion } from 'framer-motion';
+const animation = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  transition: { duration: 0.5 },
+};
 
 export async function getServerSideProps() {
   const res = await fetch(`http://localhost:3000/api/external/spotify/tracks`);
@@ -13,17 +30,9 @@ export async function getServerSideProps() {
   return { props: { data } };
 }
 
-const List: React.FC<{ children: React.ReactNode; href: string }> = ({ children, href }) => (
-  <li>
-    <Hyperlink variant="underline" href={href}>
-      {children}
-    </Hyperlink>
-  </li>
-);
-
 const Page: NextPageWithLayout = ({ data }: any) => {
   return (
-    <div>
+    <>
       <Head>
         <title>Interests | Gabriel Fonseca</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
@@ -34,22 +43,23 @@ const Page: NextPageWithLayout = ({ data }: any) => {
         <meta name="theme-color" content="#ffffff" />
       </Head>
       <div className="space-y-20">
-        <div id="#">
-          <Heading variant="h1" className="gradient">
+        <div className="space-y-8">
+          <Heading variant="h1" className="gradient" id="#">
             Things I'm interested in.
           </Heading>
 
-          <ul className="flex w-full justify-between mt-4 mb-12 opacity-80">
-            <List href="#programming">Programming</List>
-            <List href="#entrepreneurship">Entrepreneurship</List>
-            <List href="#ai-robotics">AI and robotics</List>
-            <List href="#music">Music</List>
-          </ul>
+          <motion.nav className="flex justify-start w-full border-0.8 border-solid border-charleston py-1 px-2 rounded-base">
+            {['Programming', 'Entrepreneurship', 'AI and robotics', 'Music'].map((element: any, index: number) => (
+              <Navigation key={index} url={element.toLowerCase().replace(' ', '-')} label={element} />
+            ))}
+          </motion.nav>
 
           <Divider />
         </div>
-        <div id="programming" className="space-y-6">
-          <Heading variant="h3">Entrepreneurship & Creating Products</Heading>
+        <div className="space-y-6">
+          <Heading id="programming" variant="h3">
+            Entrepreneurship & Creating Products
+          </Heading>
           <Paragraph>
             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
             industry's standard dummy text ever since the 1500s
@@ -73,18 +83,29 @@ const Page: NextPageWithLayout = ({ data }: any) => {
 
         <Divider />
 
-        <div id="music" className="space-y-3">
-          <Heading variant="h3">Music</Heading>
+        <motion.div
+          className="space-y-3"
+          initial={animation.initial}
+          animate={animation.animate}
+          transition={animation.transition}
+        >
+          <Heading id="music" variant="h3">
+            Music
+          </Heading>
           <Paragraph>Curious what I'm currently jamming to? Here's my top tracks on Spotify updated daily.</Paragraph>
           <TopTracks tracks={data} />
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </>
   );
 };
 
 Page.getLayout = function getLayout(page: ReactElement) {
-  return <Layout header={{ heading: 'Interests', icon: <PinTackIcon width={20} height={20} /> }}>{page}</Layout>;
+  return (
+    <Layout head={{ heading: 'Interests', icon: <PinTackIcon width={20} height={20} /> }}>
+      <Container>{page}</Container>
+    </Layout>
+  );
 };
 
 export default Page;
