@@ -178,17 +178,19 @@ const Sidebar = () => {
 
       <AnimatePresence>
         {!isOpen && (
-          <motion.button
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.2 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setOpen(true)}
-          >
-            <span className="sm:visible lg:hidden rounded-base p-1 bg-reisin-black xl:hidden z-40 absolute cursor-pointer top-8 left-9 hover:opacity-75 text-white fill-white opacity-60 transition ease-in-out delay-75 duration-250">
-              <MenuIcon width={26} height={26} />
-            </span>
-          </motion.button>
+          <header className="inline">
+            <motion.button
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.2 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setOpen(true)}
+            >
+              <span className="sm:visible lg:hidden rounded-base p-1 bg-reisin-black xl:hidden z-40 fixed cursor-pointer top-8 left-9 hover:opacity-80 text-white fill-white transition ease-in-out delay-75 duration-250">
+                <MenuIcon width={26} height={26} />
+              </span>
+            </motion.button>
+          </header>
         )}
 
         {isOpen && (
@@ -196,11 +198,11 @@ const Sidebar = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed w-full sm:visible lg:hidden xl:hidden z-50 pr-9 pl-2 pt-5 bg-jet-black h-full border-solid border-r-0.8 border-charleston border-opacity-30"
+            className="fixed w-full sm:visible lg:hidden xl:hidden z-50 px-2 pt-5 bg-jet-black h-full border-solid border-r-0.8 border-charleston border-opacity-30"
           >
             <button
               onClick={() => setOpen(false)}
-              className="absolute cursor-pointer rounded-base p-1 bg-reisin-black top-8 left-9 text-white fill-white opacity-60 hover:opacity-75 transition ease-in-out delay-75 duration-250"
+              className="absolute cursor-pointer rounded-base p-1 bg-reisin-black top-8 left-9 text-white fill-white hover:opacity-80 transition ease-in-out delay-75 duration-250"
             >
               <CloseIcon width={26} height={26} />
             </button>

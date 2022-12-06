@@ -33,7 +33,7 @@ const Newsletter = () => {
             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
             title="Please enter a valid email address"
             onChange={(e) => setEmail(e.target.value)}
-            className="block pl-3 w-full h-10 text-whiter bg-transparent rounded-th border-0.8 border-solid border-charleston focus:ring-primary focus:border-primary"
+            className="block text-ts lg:text-base xl:text-base pl-3 w-full h-10 text-whiter bg-transparent rounded-th border-0.8 border-solid border-charleston focus:ring-primary focus:border-primary"
             placeholder="timcook@apple.com"
             required
           />
@@ -41,7 +41,7 @@ const Newsletter = () => {
             variant="secondary"
             type="submit"
             onClick={handleClick}
-            className="absolute right-1 top-1 py-0.8 px-3 m-auto h-fit"
+            className="absolute right-1 top-1 py-0.8 px-1 lg:px-3 xl:px-3 text-ts lg:text-base xl:text-base m-auto h-fit"
           >
             Subscribe
           </Button>

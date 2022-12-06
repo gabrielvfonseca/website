@@ -31,6 +31,7 @@ export async function getServerSideProps() {
 }
 
 const Page: NextPageWithLayout = ({ data }: any) => {
+  console.log(data);
   return (
     <>
       <Head>
