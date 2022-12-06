@@ -196,7 +196,7 @@ const Sidebar = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed w-full drop-shadow-2xl sm:visible lg:hidden xl:hidden z-50 pr-9 pl-2 pt-5 bg-jet-black h-full border-solid border-r-0.8 border-charleston border-opacity-30"
+            className="fixed w-full sm:visible lg:hidden xl:hidden z-50 pr-9 pl-2 pt-5 bg-jet-black h-full border-solid border-r-0.8 border-charleston border-opacity-30"
           >
             <button
               onClick={() => setOpen(false)}
