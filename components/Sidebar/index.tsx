@@ -26,6 +26,7 @@ interface Props {
   children: React.ReactNode;
   route: string;
   isHovered?: boolean;
+  isMenu?: boolean;
   variant?: 'base' | 'social';
 }
 
@@ -51,15 +52,16 @@ export const animated = {
   },
 };
 
-const Navigate: React.FC<Props> = ({ children, route, variant, isHovered }) => {
+const Navigate: React.FC<Props> = ({ children, route, variant, isHovered, isMenu }) => {
   const router = useRouter();
 
   return (
     <Link href={route}>
       <a
         className={classNames(
-          'flex cursor-pointer content-center py-1 px-3 h-8 w-32 w-fit space-x-3 bg-transparent rounded-sm border-0.8 border-solid hover:text-opacity-80 transition ease-in-out delay-50 duration-200',
-          router.pathname === route && !isHovered ? 'border-charleston' : 'border-transparent hover:border-charleston'
+          'flex cursor-pointer content-center py-1 px-3 h-8 space-x-3 bg-transparent rounded-sm border-0.8 border-solid hover:text-opacity-80 transition ease-in-out delay-50 duration-200',
+          router.pathname === route && !isHovered ? 'border-charleston' : 'border-transparent hover:border-charleston',
+          isMenu ? 'w-full' : 'w-32'
         )}
       >
         {variant == 'social' ? (
@@ -183,7 +185,7 @@ const Sidebar = () => {
             exit={{ opacity: 0 }}
             onClick={() => setOpen(true)}
           >
-            <span className="sm:visible lg:hidden xl:hidden z-40 absolute cursor-pointer top-4 left-8 text-white fill-white opacity-60 hover:fill-primary hover:text-primary transition ease-in-out delay-75 duration-250">
+            <span className="sm:visible lg:hidden rounded-base p-1 bg-reisin-black xl:hidden z-40 absolute cursor-pointer top-8 left-9 hover:opacity-75 text-white fill-white opacity-60 transition ease-in-out delay-75 duration-250">
               <MenuIcon width={26} height={26} />
             </span>
           </motion.button>
@@ -194,30 +196,23 @@ const Sidebar = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed drop-shadow-2xl sm:visible lg:hidden xl:hidden z-50 pr-9 pl-2 pt-5 bg-jet-black h-full border-solid border-r-0.8 border-charleston border-opacity-30"
+            className="fixed w-full drop-shadow-2xl sm:visible lg:hidden xl:hidden z-50 pr-9 pl-2 pt-5 bg-jet-black h-full border-solid border-r-0.8 border-charleston border-opacity-30"
           >
             <button
               onClick={() => setOpen(false)}
-              className="absolute cursor-pointer top-3 left-4 text-white fill-white opacity-60 hover:fill-primary hover:text-primary transition ease-in-out delay-75 duration-250"
+              className="absolute cursor-pointer rounded-base p-1 bg-reisin-black top-8 left-9 text-white fill-white opacity-60 hover:opacity-75 transition ease-in-out delay-75 duration-250"
             >
               <CloseIcon width={26} height={26} />
             </button>
-            <div className="w-full">
+            <div className="w-3/4 fixed top-24 left-8">
               <Container>
-                <Heading
-                  variant="h6"
-                  animate={{ state: true, animation: 'fadeInOut', duration: 0.12 }}
-                  className="mb-2 ml-3 pt-5 text-gray font-sans font-semibold text-s text-left uppercase opacity-80"
-                >
-                  Browse
-                </Heading>
                 <motion.nav
                   onMouseEnter={() => setHovered(true)}
                   onMouseLeave={() => setHovered(false)}
-                  className="lg:space-y-1"
+                  className="space-y-1"
                 >
                   {menu.map((element: any, index: number) => (
-                    <Navigate key={index} route={element.route} isHovered={isHovered}>
+                    <Navigate key={index} route={element.route} isHovered={isHovered} isMenu={true}>
                       {element.label}
                     </Navigate>
                   ))}
@@ -231,15 +226,17 @@ const Sidebar = () => {
                 >
                   Elsewhere
                 </Heading>
-                <Navigate variant="social" route="/s/github">
-                  Github
-                </Navigate>
-                <Navigate variant="social" route="/s/twitter">
-                  Twitter
-                </Navigate>
-                <Navigate variant="social" route="/s/linkedin">
-                  Linkedin
-                </Navigate>
+                <div className="space-y-1 w-3/4">
+                  <Navigate variant="social" route="/s/github" isMenu={true}>
+                    Github
+                  </Navigate>
+                  <Navigate variant="social" route="/s/twitter" isMenu={true}>
+                    Twitter
+                  </Navigate>
+                  <Navigate variant="social" route="/s/linkedin" isMenu={true}>
+                    Linkedin
+                  </Navigate>
+                </div>
               </Container>
             </div>
           </motion.div>
