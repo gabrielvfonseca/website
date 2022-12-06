@@ -27,7 +27,7 @@ const Page: NextPageWithLayout = () => {
   return (
     <>
       <Head>
-        <title>500 | Gabriel Fonseca</title>
+        <title>500 — Gabriel Fonseca</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/svg" sizes="32x32" href="/favicon.svg" />

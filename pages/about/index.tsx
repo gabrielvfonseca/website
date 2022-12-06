@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import type { ReactElement } from 'react';
 
 /* Next */
@@ -30,11 +30,9 @@ export const getServerSideProps = async () => {
   return { props: { timeline } };
 };
 
-const emojis = ['😎', '🤖', '👏', '👨‍💻', '💻', '📦', '📌', '🤩', '🤓', '🦄', '🚀', '🎉'].sort(
-  (a, b) => 0.5 - Math.random()
-);
-
 const Page: NextPageWithLayout = ({ timeline }: any) => {
+  const [emojis, setEmojis] = useState(['😎', '🤖', '👏', '👨‍💻', '💻', '📦', '📌', '🤩', '🤓', '🦄', '🚀', '🎉'].sort((a, b) => 0.5 - Math.random()));
+  
   return (
     <>
       <Head>
