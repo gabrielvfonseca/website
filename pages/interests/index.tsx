@@ -31,7 +31,6 @@ export async function getServerSideProps() {
 }
 
 const Page: NextPageWithLayout = ({ data }: any) => {
-  console.log(data);
   return (
     <>
       <Head>
@@ -50,8 +49,8 @@ const Page: NextPageWithLayout = ({ data }: any) => {
           </Heading>
 
           <motion.nav className="flex justify-start w-full border-0.8 border-solid border-charleston py-1 px-2 rounded-base">
-            {['Programming', 'Entrepreneurship', 'AI and robotics', 'Music'].map((element: any, index: number) => (
-              <Navigation key={index} url={element.toLowerCase().replace(' ', '-')} label={element} />
+            {['Programming', 'Blogging', 'AI and robotics', 'Music'].map((element: any, index: number) => (
+              <Navigation key={index} url={'/interests/#' + element.toLowerCase().replace(' ', '-')} label={element} />
             ))}
           </motion.nav>
 

@@ -1,3 +1,5 @@
+// ./pages/500.tsx
+
 import React from 'react';
 import type { ReactElement } from 'react';
 
@@ -44,10 +46,12 @@ const Page: NextPageWithLayout = () => {
             If you're seeing this, the server room is on fire...
           </Paragraph>
           <Link href="/" passHref>
-            <Button variant="secondary">
-              Return
-              <HomeIcon width={22} height={22} className="ml-1" />
-            </Button>
+            <a>
+              <Button variant="secondary">
+                Return
+                <HomeIcon width={22} height={22} className="ml-1" />
+              </Button>
+            </a>
           </Link>
           <motion.div initial={animation.initial} animate={animation.animate} transition={animation.transition}>
             <Image

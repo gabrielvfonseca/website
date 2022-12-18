@@ -1,10 +1,25 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 
+/* Components */
+import Footer from '../Footer';
 import Sidebar from '../Sidebar';
 import Playing from '../Playing';
+
+/* Classes */
 import classNames from 'classnames';
 
+/* Framer Motion */
+import { motion, AnimatePresence } from 'framer-motion';
+const Animation = {
+  head: {
+    initial: { opacity: 0, scale: 0.5 },
+    animate: { opacity: 1, scale: 1 },
+    transition: { duration: 0.2 },
+    exit: { opacity: 0, scale: 0.5 },
+  },
+};
+
+/* Types */
 interface Props {
   children: React.ReactNode;
   head?: {
@@ -14,15 +29,6 @@ interface Props {
   };
   overflow?: boolean;
 }
-
-const Animation = {
-  head: {
-    initial: { opacity: 0, scale: 0.5 },
-    animate: { opacity: 1, scale: 1 },
-    transition: { duration: 0.2 },
-    exit: { opacity: 0, scale: 0.5 },
-  },
-};
 
 export default function Layout({ children, head }: Props) {
   const [isVisible, setVisibility] = useState(true);
@@ -78,16 +84,18 @@ export default function Layout({ children, head }: Props) {
                 onScroll={handleScroll}
                 className="h-full lg:w-4/5 lg:z-20 lg:p-8 px-8 pt-0 fixed bottom-0 lg:top-5 top-14 lg:right-5 lg:box-border lg:border-0.8 lg:border-solid lg:border-charleston lg:border-opacity-30 lg:rounded-t-lg overflow-scroll"
               >
-                <AnimatePresence>
-                  <motion.div className="static lg:mt-20 mt-8 lg:mx-20 mx-4 max-w-3xl mb-32">{children}</motion.div>
-                </AnimatePresence>
+                <motion.div className="static lg:mt-20 mt-8 lg:mx-20 mx-4 max-w-3xl mb-32">
+                  {children}
+                  <Footer />
+                </motion.div>
               </div>
             </>
           ) : (
             <div className="h-full lg:w-4/5 lg:z-30 lg:p-8 px-2 pt-0 fixed bottom-0 lg:top-5 top-14 lg:right-5 right-0 lg:box-border lg:border-0.8 lg:border-solid lg:border-charleston lg:border-opacity-30 lg:rounded-t-lg overflow-scroll">
-              <AnimatePresence>
-                <motion.div className="static lg:mt-8 mt-8 lg:mx-20 mx-8 max-w-3xl mb-32">{children}</motion.div>
-              </AnimatePresence>
+              <motion.div className="static lg:mt-8 mt-8 lg:mx-20 mx-8 max-w-3xl mb-32">
+                {children}
+                <Footer />
+              </motion.div>
             </div>
           )}
         </motion.div>

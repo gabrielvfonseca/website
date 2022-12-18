@@ -1,17 +1,21 @@
 import React, { useState } from 'react';
 import type { ReactElement } from 'react';
 
+/* SWR */
+import useSWR from 'swr';
+
 /* Next */
 import Head from 'next/head';
+import Link from 'next/link';
 import type { NextPageWithLayout } from '../_app';
 
 /* Ui Components */
-import { Picture, Paragraph, Heading, Divider } from '../../components/ui';
+import { Picture, Paragraph, Heading, Divider, Button } from '../../components/ui';
 
 /* Page Components */
 import Layout from '../../components/Layout';
 import Container from '../../components/Container';
-import AboutSite from '../../components/Site';
+import Site from '../../components/Site';
 import Line from '../../components/Timeline';
 
 /* Framer Motion */
@@ -53,12 +57,12 @@ const Page: NextPageWithLayout = ({ timeline }: any) => {
           </Heading>
 
           <Paragraph>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text ever since the 1500s
+            My name is João Gabriel Fonseca, finalist of Curso Técnico Profissional de Gestão e Programação de Sistemas
+            Informáticos at Escola Secundária de São João do Estoril.
           </Paragraph>
 
           <Picture
-            src="static/images/demo.png"
+            src="static/images/gabriel_01.jpg"
             alt="Gabriel"
             width={768}
             height={550}
@@ -67,11 +71,23 @@ const Page: NextPageWithLayout = ({ timeline }: any) => {
           />
 
           <Paragraph>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-            scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
-            electronic typesetting, remaining essentially unchanged.
+            This year, I am also preparing myself to take the national exam of applied mathematics for access to higher
+            education, with the aim of joining IST - Instituto Superior Técnico, in Computer Science Engineering.
           </Paragraph>
+          <Paragraph>
+            I consider myself an assertive person, responsible, very organized, hardworking, committed and self-taught,
+            always looking for new challenges, and with the objective of keeping myself always up to date and
+            competitive. In my spare time, I regularly attend the gym, listen to music and play the guitar.
+          </Paragraph>
+          <Paragraph>
+            I held, for two consecutive times, the ISTROB-16 workshop at Instituto Superior Técnico, and this year, I
+            won the Topas Lx programming tournament, promoted by Universidade Nova de Ciências e Tecnologias, for high
+            school students.
+          </Paragraph>
+
+          <Link href="/static/docs/cv_gabriel.pdf">
+            <Button variant="outline">Download CV</Button>
+          </Link>
         </div>
 
         {/* Projects list */}
@@ -82,6 +98,7 @@ const Page: NextPageWithLayout = ({ timeline }: any) => {
               initial={animation.initial}
               animate={animation.animate}
               transition={animation.transition}
+              className="pt-9"
             >
               <div className="relative">
                 {timeline.map((element: any, index: number) => (
@@ -100,7 +117,7 @@ const Page: NextPageWithLayout = ({ timeline }: any) => {
         </AnimatePresence>
 
         <Divider />
-        <AboutSite />
+        <Site />
       </div>
     </>
   );

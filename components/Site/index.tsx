@@ -5,9 +5,6 @@ import { motion } from 'framer-motion';
 import { ArrowRightIcon } from '@iconicicons/react';
 import { Heading, Paragraph, Hyperlink } from '../ui';
 
-/* Page Components */
-import Container from '../Container';
-
 const List: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <motion.li className="flex text-m group space-x-1 font-sans">
     <span className="pr-2 text-gray fill-gray opacity-50 hover:text-primary hover:fill-primary transition ease-in-out delay-75 duration-250">
@@ -18,7 +15,7 @@ const List: React.FC<{ children: React.ReactNode }> = ({ children }) => (
 );
 
 const AboutSite = () => (
-  <Container id="about-site" className="space-y-5">
+  <div id="site" className="space-y-5">
     <div className="space-y-3">
       <Heading variant="h3">About this site</Heading>
       <Paragraph>In case you're wondering. This site was made with:</Paragraph>
@@ -42,7 +39,7 @@ const AboutSite = () => (
         </Hyperlink>
         &nbsp;+
         <Hyperlink target="_blank" variant="underline" href="https://nextjs.org/">
-          Next.js @12
+          Next.js @13
         </Hyperlink>
         .
       </List>
@@ -72,7 +69,7 @@ const AboutSite = () => (
         &nbsp;fonts.
       </List>
     </ul>
-  </Container>
+  </div>
 );
 
 export default AboutSite;

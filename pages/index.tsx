@@ -1,3 +1,5 @@
+// ./pages/index.tsx
+
 import React from 'react';
 import type { ReactElement } from 'react';
 
@@ -50,8 +52,8 @@ const Page: NextPageWithLayout = ({ projects }: any) => {
             Software developer • CS student • Web development & AI enthusiast
           </h2>
           <Paragraph>
-            I'm a software engineer, product designer and bioinformatician. I'm particularly interested in the ways
-            technology can enhance intuition and creativity.
+            I'm a software developer, blogger and musician. I'm particularly interested in the ways algorithms can
+            increase intelligence and creativity.
           </Paragraph>
         </div>
 
@@ -102,37 +104,43 @@ const Page: NextPageWithLayout = ({ projects }: any) => {
 
           <div className="flex mt-4 flex-col space-y-2">
             <Link href="/s/github" passHref>
-              <span className="flex cursor-pointer items-center space-x-4 group hover:opacity-80 transition ease-in-out delay-75 duration-200">
-                <strong className="flex-none font-medium text-gray group-hover:text-primary transition ease-in-out delay-75 duration-200">
-                  Github
-                </strong>
-                <hr className="w-full my-2 h-1 border-gray border-t border-dashed shrink border-opacity-50" />
-                <span className="flex-none text-white-gray group-hover:opacity-75 transition ease-in-out delay-75 duration-200">
-                  Folow
+              <a>
+                <span className="flex cursor-pointer items-center space-x-4 group hover:opacity-80 transition ease-in-out delay-75 duration-200">
+                  <strong className="flex-none font-medium text-gray group-hover:text-primary transition ease-in-out delay-75 duration-200">
+                    Github
+                  </strong>
+                  <hr className="w-full my-2 h-1 border-gray border-t border-dashed shrink border-opacity-50" />
+                  <span className="flex-none text-white-gray group-hover:opacity-75 transition ease-in-out delay-75 duration-200">
+                    Folow
+                  </span>
                 </span>
-              </span>
+              </a>
             </Link>
             <Link href="/s/twitter" passHref>
-              <span className="flex cursor-pointer items-center space-x-4 group hover:opacity-80 transition ease-in-out delay-75 duration-200">
-                <strong className="flex-none font-medium text-gray group-hover:text-primary transition ease-in-out delay-75 duration-200">
-                  Twitter
-                </strong>
-                <hr className="w-full my-2 h-1 border-gray border-t border-dashed shrink border-opacity-50" />
-                <span className="flex-none text-white-gray group-hover:opacity-75 transition ease-in-out delay-75 duration-200">
-                  Folow
+              <a>
+                <span className="flex cursor-pointer items-center space-x-4 group hover:opacity-80 transition ease-in-out delay-75 duration-200">
+                  <strong className="flex-none font-medium text-gray group-hover:text-primary transition ease-in-out delay-75 duration-200">
+                    Twitter
+                  </strong>
+                  <hr className="w-full my-2 h-1 border-gray border-t border-dashed shrink border-opacity-50" />
+                  <span className="flex-none text-white-gray group-hover:opacity-75 transition ease-in-out delay-75 duration-200">
+                    Folow
+                  </span>
                 </span>
-              </span>
+              </a>
             </Link>
             <Link href="/s/linkedin" passHref>
-              <span className="flex cursor-pointer items-center space-x-4 group hover:opacity-80 transition ease-in-out delay-75 duration-200">
-                <strong className="flex-none font-medium text-gray group-hover:text-primary transition ease-in-out delay-75 duration-200">
-                  Linkedin
-                </strong>
-                <hr className="w-full my-2 h-1 border-gray border-t border-dashed shrink border-opacity-50" />
-                <span className="flex-none text-white-gray group-hover:opacity-75 transition ease-in-out delay-75 duration-200">
-                  Folow
+              <a>
+                <span className="flex cursor-pointer items-center space-x-4 group hover:opacity-80 transition ease-in-out delay-75 duration-200">
+                  <strong className="flex-none font-medium text-gray group-hover:text-primary transition ease-in-out delay-75 duration-200">
+                    Linkedin
+                  </strong>
+                  <hr className="w-full my-2 h-1 border-gray border-t border-dashed shrink border-opacity-50" />
+                  <span className="flex-none text-white-gray group-hover:opacity-75 transition ease-in-out delay-75 duration-200">
+                    Folow
+                  </span>
                 </span>
-              </span>
+              </a>
             </Link>
           </div>
         </motion.div>
